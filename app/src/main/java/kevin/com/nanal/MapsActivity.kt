@@ -2,15 +2,44 @@ package kevin.com.nanal
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.FragmentActivity
+import com.baidu.mapapi.map.MapView
+import com.baidu.mapapi.map.SupportMapFragment
+import com.baidu.mapapi.map.BaiduMapOptions
+import com.baidu.mapapi.model.LatLng
+import android.support.v4.app.NotificationCompat.getExtras
+import com.baidu.mapapi.map.MapStatus
+import android.content.Intent
+import android.databinding.DataBindingUtil
+import android.support.v4.widget.DrawerLayout
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
+import kevin.com.nanal.databinding.ActivityMapsBinding
 
 
 class MapsActivity : AppCompatActivity() {
-
+    private lateinit var drawerLayout: DrawerLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        val binding: ActivityMapsBinding = DataBindingUtil.setContentView(this,
+                R.layout.activity_maps)
+        drawerLayout = binding.drawerLayout
+
+        val navController = Navigation.findNavController(this, R.id.garden_nav_fragment)
+
+        // Set up ActionBar
+        setSupportActionBar(binding.toolbar)
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+
+        // Set up navigation menu
+        binding.navigationView.setupWithNavController(navController)
+
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(drawerLayout,
+                Navigation.findNavController(this, R.id.garden_nav_fragment))
+    }
 
 }
