@@ -1,7 +1,0 @@
-<resources>
-    <string name="navigation_drawer_header_content_description">导航抽屉页眉</string>
-    <string name="navigation_drawer_header_title" translatable="false">土地分析</string>
-    <string name="my_garden_title">新房库存</string>
-    <string name="plant_list_title">行情分析</string>
-    <string name="title_activity_maps">地图</string>
-</resources>
