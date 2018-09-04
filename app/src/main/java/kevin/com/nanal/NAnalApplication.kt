@@ -23,6 +23,6 @@ class NAnalApplication: Application() {
         Stetho.initializeWithDefaults(this)
 
         AVOSCloud.initialize(this,CipherClient.leancloudId(),CipherClient.leancloudKey())
-
+        AVOSCloud.setDebugLogEnabled(BuildConfig.DEBUG);
     }
 }

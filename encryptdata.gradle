@@ -1,0 +1,11 @@
+cipher.so {
+    keys {
+        leancloudId {
+            value = 'nG0OJ90yu7WFJKDQfuUKThXd-gzGzoHsz'
+        }
+        leancloudKey {
+            value = 'CATKxvj9lh2toiB14CowPBPi'
+        }
+    }
+    encryptSeed = 'HelloSecretKey' //用于加密的密钥
+}
