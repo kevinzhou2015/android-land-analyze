@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="viewModel"
+                type="kevin.com.nanal.viewmodels.LandListViewModel"/>
+    </data>
+    <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <fragment
+                android:id="@+id/bmapFragment"
+                android:name="com.baidu.mapapi.map.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"
+        />
+        <android.support.v4.widget.NestedScrollView
+                android:id="@+id/bottomsheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:behavior_hideable="true"
+                app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/shrine_card_inner_padding"
+                        android:background="@color/colorPrimary">
+                    <TextView
+                            android:id="@+id/LandName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:textStyle="bold"
+                            android:text="@{viewModel.selectedPlant.name}"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp"/>
+                    <TextView
+                            android:id="@+id/LandNatural"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:text="@{viewModel.selectedPlant.nature_of_land}"
+                            android:textColor="@android:color/white"/>
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="vertical"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

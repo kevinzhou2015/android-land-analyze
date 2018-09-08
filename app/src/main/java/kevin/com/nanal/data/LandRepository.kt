@@ -2,7 +2,7 @@ package kevin.com.nanal.data
 
 class LandRepository private constructor(private val landDao: LandDao) {
 
-    fun getPlants() = landDao.getLands()
+    fun getLands() = landDao.getLands()
 
     fun getPlant(landId: String) = landDao.getLand(landId)
 

@@ -34,8 +34,11 @@ android {
         vectorDrawables.useSupportLibrary true
     }
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
+        }
+        release {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -71,24 +74,24 @@ dependencies {
     //room
     kapt "android.arch.persistence.room:compiler:$room_version" // use kapt for Kotlin
     implementation "android.arch.persistence.room:runtime:$room_version"
-
     // LeanCloud 基础包
-    implementation ('cn.leancloud.android:avoscloud-sdk:v4.7.3')
+    implementation ("cn.leancloud.android:avoscloud-sdk:$leancloud_Version")
     // LeanCloud 统计包
-    implementation ('cn.leancloud.android:avoscloud-statistics:v4.7.3')
+    implementation ("cn.leancloud.android:avoscloud-statistics:$leancloud_Version")
     // LeanCloud 用户反馈包
-    implementation ('cn.leancloud.android:avoscloud-feedback:v4.7.3@aar')
+    implementation ("cn.leancloud.android:avoscloud-feedback:$leancloud_Version@aar")
     // avoscloud-sns：LeanCloud 第三方登录包
-    implementation ('cn.leancloud.android:avoscloud-sns:v4.7.3@aar')
-    implementation ('cn.leancloud.android:qq-sdk:1.6.1-leancloud')
-
+    implementation ("cn.leancloud.android:avoscloud-sns:$leancloud_Version@aar")
+    implementation ("cn.leancloud.android:qq-sdk:$leancloudQQ_Version-leancloud")
     // stetho tool
     implementation "com.facebook.stetho:stetho:$stetho_Version"
     implementation "com.facebook.stetho:stetho-okhttp3:$stetho_Version"
+    //uticode
+    implementation "com.blankj:utilcode:$uticode_Version"
 
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
-    androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+    testImplementation "junit:junit:4.12"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.2.0"
+    androidTestImplementation "org.junit.jupiter:junit-jupiter-api:5.2.0"
 
 }
 

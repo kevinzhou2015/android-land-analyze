@@ -25,7 +25,6 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
-                Log.i(TAG,"database synchronized")
                 instance ?: buildDatabase(context).also { instance = it }
             }
         }

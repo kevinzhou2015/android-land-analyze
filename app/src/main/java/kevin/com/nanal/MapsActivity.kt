@@ -2,26 +2,12 @@ package kevin.com.nanal
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.FragmentActivity
-import com.baidu.mapapi.map.MapView
-import com.baidu.mapapi.map.SupportMapFragment
-import com.baidu.mapapi.map.BaiduMapOptions
-import com.baidu.mapapi.model.LatLng
-import android.support.v4.app.NotificationCompat.getExtras
-import com.baidu.mapapi.map.MapStatus
-import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.support.v4.widget.DrawerLayout
-import android.util.Log
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.avos.avoscloud.AVException
-import com.avos.avoscloud.AVOSCloud
-import com.avos.avoscloud.AVObject
-import com.avos.avoscloud.SaveCallback
 import kevin.com.nanal.databinding.ActivityMapsBinding
-import net.idik.lib.cipher.so.CipherClient
 
 class MapsActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
@@ -40,7 +26,6 @@ class MapsActivity : AppCompatActivity() {
         // Set up navigation menu
         binding.navigationView.setupWithNavController(navController)
 
-        testLeanCloud()
 
     }
 
@@ -49,17 +34,5 @@ class MapsActivity : AppCompatActivity() {
                 Navigation.findNavController(this, R.id.garden_nav_fragment))
     }
 
-    fun testLeanCloud(){
-        // 测试 SDK 是否正常工作的代码
-        val testObject = AVObject("TestObject")
-        testObject.put("words", "Hello World!")
-        testObject.saveInBackground(object : SaveCallback() {
-            override fun done(e: AVException?) {
-                if (e == null) {
-                    Log.d("saved", "success!")
-                }
-            }
-        })
-    }
 
 }

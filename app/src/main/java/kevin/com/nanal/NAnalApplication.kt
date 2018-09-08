@@ -4,6 +4,7 @@ import android.app.Application
 import com.avos.avoscloud.AVOSCloud
 import com.baidu.mapapi.CoordType
 import com.baidu.mapapi.SDKInitializer
+import com.blankj.utilcode.util.Utils
 import com.facebook.stetho.Stetho
 import net.idik.lib.cipher.so.CipherClient
 
@@ -23,6 +24,8 @@ class NAnalApplication: Application() {
         Stetho.initializeWithDefaults(this)
 
         AVOSCloud.initialize(this,CipherClient.leancloudId(),CipherClient.leancloudKey())
-        AVOSCloud.setDebugLogEnabled(BuildConfig.DEBUG);
+        AVOSCloud.setDebugLogEnabled(BuildConfig.DEBUG)
+        Utils.init(this)
+
     }
 }
